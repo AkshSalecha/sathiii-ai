@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     const userMessage = messages[messages.length - 1]?.content
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: {
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
 
     const data = await response.json()
 
-    console.log("GEMINI RESPONSE:", data) // 🔥 IMPORTANT
+    console.log("GEMINI RESPONSE:", data)
 
     const reply =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
