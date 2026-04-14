@@ -16,9 +16,10 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           contents: [
             {
+              role: "user",
               parts: [
                 {
-                  text: userMessage,
+                  text: userMessage || "Hello",
                 },
               ],
             },
